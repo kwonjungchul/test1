@@ -1,2 +1,17 @@
 src/server.log
 src/server.log
+# Ignore virtual environments
+venv/
+.venv/
+
+# Ignore compiled bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore logs
+*.log
+
+# Ignore large data files
+*.csv
+*.db
