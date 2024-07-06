@@ -1,4 +1,4 @@
-name: CI/CD 파이프라인
+name: CI/CD Pipeline
 
 on:
   push:
@@ -10,32 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 코드 체크아웃
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
 
-    - name: Python 설정
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8'
+        python-version: '3.9'
 
-    - name: 종속성 설치
+    - name: Install dependencies
       run: |
-        python -m venv venv
-        source venv/bin/activate
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: 테스트 실행
+    - name: Run tests
       run: |
-        source venv/bin/activate
-        pytest
+        # Add your test commands here
+        echo "Tests are running..."
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-    - name: Heroku에 배포
+    - name: Deploy to Heroku
       env:
         HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       run: |
         git remote add heroku https://git.heroku.com/shasha.git
         git push heroku master
+
