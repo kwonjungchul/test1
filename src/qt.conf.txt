@@ -1,0 +1,4 @@
+[Paths]
+Prefix = C:/Users/k/Miniconda3/envs/kiwoom_env/Library
+Binaries = C:/Users/k/Miniconda3/envs/kiwoom_env/Library/bin
+Plugins = C:/Users/k/Miniconda3/envs/kiwoom_env/Library/plugins

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Analyzer Chatbot</title>
+</head>
+<body>
+    <h1>Code Analyzer Chatbot</h1>
+    <form id="codeForm">
+        <textarea id="codeInput" rows="10" cols="50" placeholder="Enter your code here..."></textarea><br>
+        <button type="submit">Analyze Code</button>
+    </form>
+    <h2>Result:</h2>
+    <pre id="resultOutput"></pre>
+
+    <script>
+        document.getElementById('codeForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const code = document.getElementById('codeInput').value;
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code })
+            });
+            const result = await response.json();
+            document.getElementById('resultOutput').textContent = result.result || result.error;
+        });
+    </script>
+</body>
+</html>
