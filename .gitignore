@@ -13,10 +13,25 @@ __pycache__/
 # Ignore large data files
 *.csv
 *.db
-*.dll
+*.zip
 *.exe
+*.dll
+*.so
+*.7z
+*.rar
+*.tar.gz
 *.chm
-
-# Ignore other large files
-python 32/
-python-3.9.7.exe
+*.mp4
+*.avi
+*.mov
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+*.iso
+*.bin
+*.dat
+*.jar
